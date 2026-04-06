@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, sans-serif;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F8FAFC;
+  color: #1E293B;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Smooth scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 transparent;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s infinite;
+}
+
+/* Card hover transitions */
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Sidebar */
+.sidebar-link {
+  @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-slate-600 transition-all duration-150;
+}
+.sidebar-link:hover {
+  @apply bg-blue-50 text-primary;
+}
+.sidebar-link.active {
+  @apply bg-blue-50 text-primary font-semibold;
+}
+
+/* Status pills */
+.pill {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+}
+.pill-green { @apply bg-green-100 text-green-700; }
+.pill-amber { @apply bg-amber-100 text-amber-700; }
+.pill-red { @apply bg-red-100 text-red-700; }
+.pill-blue { @apply bg-blue-100 text-blue-700; }
+.pill-gray { @apply bg-gray-100 text-gray-600; }
+
+/* Form inputs */
+.input {
+  @apply w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors;
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+.btn-primary { @apply btn bg-primary text-white hover:bg-primary-dark shadow-sm hover:shadow; }
+.btn-outline { @apply btn border border-slate-200 text-slate-700 bg-white hover:bg-slate-50; }
+.btn-danger { @apply btn bg-red-50 text-danger border border-red-100 hover:bg-red-100; }
+.btn-success { @apply btn bg-green-50 text-success border border-green-100 hover:bg-green-100; }
